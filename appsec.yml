@@ -1,19 +1,18 @@
 version: 0.0
 os: linux
 files:
-  - source: /var/www/html/wordpress/
+  - source: /index.php
     destination: /var/www/html/wordpress/
 
 hooks:
   BeforeInstall:
-    - location: scripts/stop_apache.sh
+    - location: scripts/install_dependencies
       timeout: 300
-  AfterInstall:
-    - location: scripts/start_apache.sh
+      runas: root
+    - location: scripts/start_server
       timeout: 300
-  ApplicationStart:
-    - location: scripts/configure_wp.sh
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_server
       timeout: 300
-  ValidateService:
-    - location: scripts/validate_service.sh
-      timeout: 300
+      runas: root
