@@ -1,0 +1,19 @@
+version: 0.0
+os: linux
+files:
+  - source: /var/www/html/wordpress/
+    destination: /var/www/html/wordpress/
+
+hooks:
+  BeforeInstall:
+    - location: scripts/stop_apache.sh
+      timeout: 300
+  AfterInstall:
+    - location: scripts/start_apache.sh
+      timeout: 300
+  ApplicationStart:
+    - location: scripts/configure_wp.sh
+      timeout: 300
+  ValidateService:
+    - location: scripts/validate_service.sh
+      timeout: 300
