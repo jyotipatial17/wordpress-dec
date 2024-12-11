@@ -1,3 +1,4 @@
+
 #!/bin/bash
 echo "Configuring wp-config.php..."
 # Modify wp-config.php here, if needed.
