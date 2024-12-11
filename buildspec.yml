@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Checking the OS and installing jq..."
+
+  pre_build:
+    commands:
+      - echo "Running pre-build steps..."
+      - echo "MYSQL_HOST=localhost" >> ~/.bashrc
+      - echo "MYSQL_USER=jyoti_user" >> ~/.bashrc
+      - echo "MYSQL_PASSWORD=shpreety2013." >> ~/.bashrc
+      - echo "MYSQL_DB=jyoti" >> ~/.bashrc
+
+  build:
+    commands:
+      - echo "Starting WordPress deployment..."
+
+  post_build:
+    commands:
+      - echo "Configuring wp-config.php..."
+      - echo "wp-config.php configured successfully."    
+      - echo "Deployment completed successfully."
