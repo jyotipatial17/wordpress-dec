@@ -21,10 +21,6 @@ hooks:
     - location: scripts/start_apache.sh
       timeout: 400
       runas: root
-  ApplicationStart:
-    - location: scripts/configure_wp.sh
-      timeout: 400
-      runas: root
   ValidateService:
     - location: scripts/validate_service.sh
       timeout: 400
