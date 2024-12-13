@@ -7,10 +7,11 @@ files:
     destination: /var/www/html/wordpress/
 
 # Hooks to define actions during the deployment lifecycle
-#hooks:
- #3# BeforeInstall:
- #   - location: scripts/cleanup.sh      # Optional: Add a cleanup step if needed before the install
- #     runas: root
+hooks:
+  # Uncomment and adjust these lines if you need pre-install steps
+  # BeforeInstall:
+  #   - location: scripts/cleanup.sh      # Optional: Add a cleanup step if needed before the install
+  #     runas: root
 
   ApplicationStart:
     - location: scripts/start_apache.sh # Script to start Apache after deployment
