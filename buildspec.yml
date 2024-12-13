@@ -23,5 +23,4 @@ phases:
       - echo "wp-config.php configured successfully."    
       - echo "Deployment completed successfully."
   artifacts: 
-     files: - appspec.yml 
-            - **/*
+     files: - "**/*"
