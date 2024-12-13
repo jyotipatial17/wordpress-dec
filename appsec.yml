@@ -1,16 +1,18 @@
 version: 0.0
-os: ubuntu
-
+os: linux
+files:
+  - source: /
+    destination: /var/www/html/wordPress
 hooks:
   BeforeInstall:
-    - location: scripts/stop_apache.sh
-      timeout: 400
+    - location: scripts/install_dependencies.sh
+      timeout: 300
       runas: root
-  AfterInstall:
-    - location: scripts/start_apache.sh
-      timeout: 400
+  ApplicationStart:
+    - location: scripts/start_server.sh
+      timeout: 300
       runas: root
-  ValidateService:
-    - location: scripts/validate_service.sh
-      timeout: 400
+  ApplicationStop:
+    - location: scripts/stop_server.sh
+      timeout: 300
       runas: root
