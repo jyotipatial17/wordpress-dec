@@ -22,5 +22,6 @@ phases:
       - echo "Configuring wp-config.php..."
       - echo "wp-config.php configured successfully."    
       - echo "Deployment completed successfully."
-  artifacts: 
-     files: - "**/*"
+artifacts: 
+   files:
+     - "**/*"
