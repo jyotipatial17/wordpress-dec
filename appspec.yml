@@ -1,10 +1,18 @@
 version: 0.0
 os: linux
-files: 
+
+# Define the source and destination for your deployment files
+files:
   - source: /
     destination: /var/www/html/wordpress/
+
+# Hooks to define actions during the deployment lifecycle
 hooks:
+  BeforeInstall:
+    - location: scripts/cleanup.sh      # Optional: Add a cleanup step if needed before the install
+      runas: root
+
   ApplicationStart:
-    - location: scripts/start_apache.sh
+    - location: scripts/start_apache.sh # Script to start Apache after deployment
       timeout: 300
       runas: root
