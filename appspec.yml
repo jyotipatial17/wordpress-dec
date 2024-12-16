@@ -3,17 +3,18 @@ os: linux
 
 # Define the source and destination for your deployment files
 files:
-  - source: /
-    destination: /var/www/html/wordpress/
+  - source: /              # Define the source path; this should be the directory or files you want to copy
+    destination: /var/www/html/wordpress/  # Define the destination path on the server
+    file_exists_behavior: OVERWRITE  # This will overwrite existing files in the destination directory
 
 # Hooks to define actions during the deployment lifecycle
 hooks:
   # Uncomment and adjust these lines if you need pre-install steps
   # BeforeInstall:
-  #   - location: scripts/cleanup.sh      # Optional: Add a cleanup step if needed before the install
-  #     runas: root
-
+  #   - location: scripts/cleanup.sh     # Optional cleanup script to run before the installation
+  #     runas: root                      # Run as root user to perform cleanup actions (e.g., removing old files)
+  
   ApplicationStart:
-    - location: scripts/start_apache.sh # Script to start Apache after deployment
-      timeout: 300
-      runas: root
+    - location: scripts/start_apache.sh  # Script to start Apache after deployment
+      timeout: 300                        # Timeout for script execution (in seconds)
+      runas: root                         # Run the script with root privileges
