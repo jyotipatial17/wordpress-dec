@@ -10,9 +10,9 @@ files:
 # Hooks to define actions during the deployment lifecycle
 hooks:
   # Uncomment and adjust these lines if you need pre-install steps
-  # BeforeInstall:
-  #   - location: scripts/cleanup.sh     # Optional cleanup script to run before the installation
-  #     runas: root                      # Run as root user to perform cleanup actions (e.g., removing old files)
+  BeforeInstall:
+     - location: scripts/cleanup.sh     # Optional cleanup script to run before the installation
+       runas: root                      # Run as root user to perform cleanup actions (e.g., removing old files)
   
   ApplicationStart:
     - location: scripts/start_apache.sh  # Script to start Apache after deployment
